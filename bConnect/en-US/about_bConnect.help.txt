@@ -1,0 +1,22 @@
+TOPIC
+    about_bConnect
+
+SHORT DESCRIPTION
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit, 
+    est in tincidunt venenatis, 
+    felis eleifend dolor, vel aliquam mauris odio blandit leo
+
+LONG DESCRIPTION
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Donec hendreri 
+    
+    dest in tincidunt venenatis,
+    dolor felis eleifend dolor,
+    vel aliquam mauris odio blandit leo
+
+AUTHENTICATION
+    Lorem ipsum dolor sit amet, 
+    consectetur adipiscing elit. 
+    Donec hendrerit, est in tincidunt venenatis, 
+    dolor felis eleifend dolor, 
+     aliquam mauris odio blandit leo
