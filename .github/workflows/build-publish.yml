@@ -32,6 +32,7 @@ jobs:
           Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
           Install-Module "InvokeBuild" -Force
           $Username, $ProjectName = $env:GITHUB_REPOSITORY -split "/"
+          $ProjectName = "cv-"+ $ProjectName
           Invoke-Build -ModuleName $ProjectName -Author $Username -Task "InstallDependencies","ImportBuildModule","SetGitHubActionEnvironmentVariables"
         shell: pwsh
 
@@ -40,7 +41,9 @@ jobs:
         shell: pwsh
 
       - name: Publish to PowerShell Gallery
-        run: Invoke-Build -ModuleName $env:GH_PROJECTNAME -Task "PublishModule"
+        run: |
+           $ProjectName = "cv-"+ $env:GH_PROJECTNAME
+           Invoke-Build -ModuleName $ProjectName -Task "PublishModule"
         shell: pwsh
         env:
           PSGALLERY_API_KEY: ${{ secrets.PSGALLERY_API_KEY }}
