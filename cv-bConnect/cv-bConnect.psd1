@@ -12,7 +12,7 @@
 RootModule = 'cv-bConnect.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.1.77'
+ModuleVersion = '21.1.4'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -107,8 +107,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = '# Added
-- Initial release'
+        ReleaseNotes = 'None'
 
         # Prerelease string of this module
         # Prerelease = ''
