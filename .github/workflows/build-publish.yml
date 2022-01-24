@@ -37,7 +37,9 @@ jobs:
         shell: pwsh
 
       - name: Build
-        run: Invoke-Build -ModuleName $env:GH_PROJECTNAME -Author $env:GH_USERNAME -Version $env:GitVersion_SemVer -NewRelease $true
+        run: |
+          $ProjectName = "cv-"+ $env:GH_PROJECTNAME 
+          Invoke-Build -ModuleName $ProjectName -Author $env:GH_USERNAME -Version $env:GitVersion_SemVer -NewRelease $true
         shell: pwsh
 
       - name: Publish to PowerShell Gallery
