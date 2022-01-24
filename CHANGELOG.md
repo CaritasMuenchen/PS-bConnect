@@ -6,5 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.77] - 2022-01-24
+
 ### Added
 - Initial release
+[Unreleased]: https://github.com/CaritasMuenchen/cv-bConnect/compare/0.1.77..HEAD
+[0.1.77]: https://github.com/CaritasMuenchen/cv-bConnect/tree/0.1.77
