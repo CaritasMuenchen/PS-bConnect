@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [21.1.14] - 2022-01-25
 ### Added
+- Added back Determine Version
 - Added workflow Build Only
 
 ## [21.1.10] - 2022-01-25

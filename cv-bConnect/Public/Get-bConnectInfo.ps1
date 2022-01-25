@@ -2,7 +2,7 @@
 Function Get-bConnectInfo() {
     <#
         .Synopsis
-            Gets info from bConnect. 
+            Gets info from bConnect.
     #>
 
     If(!$script:_bConnectInfo) {

@@ -22,6 +22,12 @@ jobs:
         with:
           versionSpec: '5.x'
 
+      - name: Determine Version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v0.9.10
+        with:
+          useConfigFile: true
+
       - name: Install codaamok.build and dependent modules, and set environment variables
         run: |
           Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
