@@ -6,6 +6,9 @@ on:
       - master
   workflow_dispatch:
 
+env:
+  PS-ProjectName: cv-bConnect
+
 jobs:
   job-main:
     name: main
@@ -32,19 +35,15 @@ jobs:
           Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
           Install-Module "InvokeBuild" -Force
           $Username, $ProjectName = $env:GITHUB_REPOSITORY -split "/"
-          Invoke-Build -ModuleName $ProjectName -Author $Username -Task "InstallDependencies","ImportBuildModule","SetGitHubActionEnvironmentVariables"
+          Invoke-Build -ModuleName $PS-ProjectName -Author $Username -Task "InstallDependencies","ImportBuildModule","SetGitHubActionEnvironmentVariables"
         shell: pwsh
 
       - name: Build
-        run: |
-          $ProjectName = $env:GH_PROJECTNAME 
-          Invoke-Build -ModuleName $ProjectName -Author $env:GH_USERNAME -Version $env:GitVersion_SemVer -NewRelease $true
+        run: Invoke-Build -ModuleName $PS-ProjectName -Author $env:GH_USERNAME -Version $env:GitVersion_SemVer -NewRelease $true
         shell: pwsh
 
       - name: Publish to PowerShell Gallery
-        run: |
-           $ProjectName = $env:GH_PROJECTNAME
-           Invoke-Build -ModuleName $ProjectName -Task "PublishModule"
+        run: Invoke-Build -ModuleName $PS-ProjectName -Task "PublishModule"
         shell: pwsh
         env:
           PSGALLERY_API_KEY: ${{ secrets.PSGALLERY_API_KEY }}
@@ -68,15 +67,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url:  ${{ steps.create_release.outputs.upload_url }}
-          asset_path: release/${{ env.GH_PROJECTNAME }}_${{ env.GitVersion_SemVer }}.zip
-          asset_name: ${{ env.GH_PROJECTNAME }}_${{ env.GitVersion_SemVer }}.zip
+          asset_path: release/${{ env.PS-ProjectName }}_${{ env.GitVersion_SemVer }}.zip
+          asset_name: ${{ env.PS-ProjectName }}_${{ env.GitVersion_SemVer }}.zip
           asset_content_type: application/zip
 
       - name: Commit CHANGELOG.md and module manifest
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git add CHANGELOG.md ${GH_PROJECTNAME}/${GH_PROJECTNAME}.psd1 docs
+          git add CHANGELOG.md ${PS-ProjectName}/${GH_PROJECTNAME}.psd1 docs
           git commit -m "Released ${{ env.GitVersion_SemVer }}"
       
       - name: Push commit
