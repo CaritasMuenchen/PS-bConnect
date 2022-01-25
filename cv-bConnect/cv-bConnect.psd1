@@ -12,7 +12,7 @@
 RootModule = 'cv-bConnect.psm1'
 
 # Version number of this module.
-ModuleVersion = '21.1.10'
+ModuleVersion = '21.1.14'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -108,7 +108,7 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = '# Added
-- Added workflow ENV for Project'
+- Added workflow Build Only'
 
         # Prerelease string of this module
         # Prerelease = ''
